@@ -35,3 +35,6 @@ jobs:
       run: |
         echo "BASE_URL_REST = ${{ secrets.BASE_URL_REST }}" >> .env
         echo "BASE_URL_GRAPHQL = ${{ secrets.BASE_URL_GRAPHQL }}" >> .env
+
+    - name: 🧪 Executar testes External de API Rest via HTTP
+      run: npm run test-rest-external
