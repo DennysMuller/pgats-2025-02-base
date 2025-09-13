@@ -4,7 +4,7 @@ const { expect } = require('chai');
 const app = require('../../../rest/app');
 const userService = require('../../../src/services/userService');
 
-describe('2 - Validar o User Controllert', () => {
+describe('2 - Validar o User Controller', () => {
     let registerStub, authenticateStub;
 
     before(() => {
@@ -23,7 +23,11 @@ describe('2 - Validar o User Controllert', () => {
 
             const res = await request(app)
                 .post('/api/users/register')
-                .send({ name: 'PGATS Turma 2', email: 'pgats-turma2@example.com', password: 'password123' });
+                .send({ 
+                    name: 'PGATS Turma 2', 
+                    email: 'pgats-turma2@example.com', 
+                    password: 'password123'
+                });
             // console.log(res.body);
             expect(res.status).to.equal(201);
             expect(res.body.user).to.have.property('name', novoUsuario.name);

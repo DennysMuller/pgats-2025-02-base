@@ -35,7 +35,7 @@ describe('1 - Validar o Checkout Controller', () => {
             expect(res.body).to.have.property('freight', 10);
         });
 
-        it('Simular um uso de um "Token inválido"', async () => {
+        it('Validar uso de um "Token inválido"', async () => {
             verifyTokenStub.returns(null);
 
             const res = await request(app)

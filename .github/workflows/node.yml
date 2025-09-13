@@ -21,3 +21,9 @@ jobs:
 
     - name: ⚙️ Instalar dependências
       run: npm install
+
+    - name: 🧪 Executar testes de API Rest via controller
+      run: npm run test-rest-controller
+
+    - name: ▶️ Subir a API Rest
+      run: npm run start-rest &
