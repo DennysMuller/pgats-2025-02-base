@@ -1,0 +1,23 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # Os ícones baixei do sítio: https://github.com/ikatyang/emoji-cheat-sheet.git
+    steps:
+    - name: ✅ Checkout repository
+      uses: actions/checkout@v4
+
+    - name: 📝 Use Node.js 20.x
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+
+    - name: ⚙️ Instalar dependências
+      run: npm install
