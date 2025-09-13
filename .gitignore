@@ -1,1 +1,6 @@
+mochawesome-report/
 node_modules/
+rest/controllers/*.bak
+.env
+pgats-2025-02-base.code-workspace
+*.txt
