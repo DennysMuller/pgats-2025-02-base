@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha \"test/**/*.test.js\" --timeout 10000 --reporter mochawesome --reporter-options quiet=true",
-    "test-graphql": "echo \"Erro: no teste teste-graphql\" && exit 1",
-    "test-graphql-controller": "echo \"Erro: no teste graphql-controller\" && exit 1",
-    "test-graphql-external": "echo \"Erro: no teste graphql-external\" && exit 1",
+    "test-graphql": "npm run test-graphql-controller && npm run test-graphql-external",
+    "test-graphql-controller": "mocha \"test/graphql/controller/**/*.test.js\" --timeout 10000 --reporter mochawesome --reporter-options quiet=true",
+    "test-graphql-external": "mocha \"test/graphql/external/**/*.test.js\" --timeout 10000 --reporter mochawesome --reporter-options quiet=true",
     "test-rest": "npm run test-rest-controller && npm run test-rest-external",
     "test-rest-controller": "mocha \"test/rest/controller/**/*.test.js\" --timeout 10000 --reporter mochawesome --reporter-options quiet=true",
     "test-rest-external": "mocha \"test/rest/external/**/*.test.js\" --timeout 10000 --reporter mochawesome --reporter-options quiet=true",
