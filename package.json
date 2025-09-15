@@ -4,15 +4,17 @@
   "description": "Trabalho de conclusão da disciplina de Automação de Testes em APIs",
   "main": "index.js",
   "scripts": {
-    "test": "mocha \"test/**/*.test.js\" --timeout 10000 --reporter mochawesome --reporter-options quiet=true",
+    "test": "mocha \"test/**/*.test.js\" --timeout 10000 --reporter mochawesome --reporter-options 'overwrite=false,json=true,quiet=true'",
     "test-graphql": "npm run test-graphql-controller && npm run test-graphql-external",
-    "test-graphql-controller": "mocha \"test/graphql/controller/**/*.test.js\" --timeout 10000 --reporter mochawesome --reporter-options quiet=true",
-    "test-graphql-external": "mocha \"test/graphql/external/**/*.test.js\" --timeout 10000 --reporter mochawesome --reporter-options quiet=true",
+    "test-graphql-controller": "mocha \"test/graphql/controller/**/*.test.js\" --timeout 10000 --reporter mochawesome --reporter-options 'overwrite=false,json=true,quiet=true'",
+    "test-graphql-external": "mocha \"test/graphql/external/**/*.test.js\" --timeout 10000 --reporter mochawesome --reporter-options 'overwrite=false,json=true,quiet=true'",
     "test-rest": "npm run test-rest-controller && npm run test-rest-external",
-    "test-rest-controller": "mocha \"test/rest/controller/**/*.test.js\" --timeout 10000 --reporter mochawesome --reporter-options quiet=true",
-    "test-rest-external": "mocha \"test/rest/external/**/*.test.js\" --timeout 10000 --reporter mochawesome --reporter-options quiet=true",
+    "test-rest-controller": "mocha \"test/rest/controller/**/*.test.js\" --timeout 10000 --reporter mochawesome --reporter-options 'overwrite=false,json=true,quiet=true'",
+    "test-rest-external": "mocha \"test/rest/external/**/*.test.js\" --timeout 10000 --reporter mochawesome --reporter-options 'overwrite=false,json=true,quiet=true'",
     "start-graphql": "node graphql/server.js",
-    "start-rest": "node rest/server.js"
+    "start-rest": "node rest/server.js",
+    "report:merge": "mochawesome-merge mochawesome-report/*.json -o mochawesome-report/report.json",
+    "report:generate": "marge mochawesome-report/report.json --report-dir mochawesome-report --inline"
   },
   "repository": {
     "type": "git",
@@ -39,6 +41,7 @@
     "dotenv": "^17.2.2",
     "mocha": "^11.7.2",
     "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^5.0.0",
     "sinon": "^21.0.0",
     "supertest": "^7.1.4"
   }

@@ -48,6 +48,14 @@ jobs:
     - name: 🧪 Executar testes External de API GraphQL via HTTP
       run: npm run test-graphql-external
 
+    - name: 🤝 Juntar os relatórios de teste
+      if: always()
+      run: npm run report:merge
+
+    - name: 📄 Gerar o relatório HTML final
+      if: always()
+      run: npm run report:generate
+
     - name: 📦 Publicar o relatório de testes
       if: always()
       uses: actions/upload-artifact@v4
