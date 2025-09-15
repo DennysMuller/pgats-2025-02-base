@@ -12,8 +12,8 @@ describe('GraphQL API - Validar User Controller', () => {
         sinon.restore();
     });
 
-    describe('1 - Mutation: register', () => {
-        it('Validar registro de usuário', async () => {
+    describe('1 - Validar Mutation: register', () => {
+        it('Validar registro de usuário com sucesso', async () => {
             const usuario = { name: 'PGATS Turma 2', email: 'pgats-turam2@example.com' };
             const registrarUsuario = sinon.stub(userService, 'registerUser').returns(usuario);
             const registerMutation = require('../fixture/requisicoes/registros/registerUser.json');
@@ -36,7 +36,7 @@ describe('GraphQL API - Validar User Controller', () => {
             expect(res.body.data.register).to.eql(usuario);
         });
 
-        it('Validar o retorno de erro no registro de usuário caso falhe', async () => {
+        it('Validar o registro de usuário com um email já cadastrado', async () => {
             const registrarUsuario = sinon.stub(userService, 'registerUser').returns(null);            
             const registerMutation = require('../fixture/requisicoes/registros/registerUser.json');
             

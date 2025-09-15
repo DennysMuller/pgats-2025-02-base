@@ -25,8 +25,14 @@ jobs:
     - name: 🧪 Executar testes de API Rest via controller
       run: npm run test-rest-controller
 
+    - name: 🧪 Executar testes de API GraphQL via controller
+      run: npm run test-graphql-controller
+
     - name: ▶️ Subir a API Rest
       run: npm run start-rest &
+    
+    - name: ▶️ Subir a API GraphQL
+      run: npm run start-graphql &
 
     - name: ⏳ Esperar as APIs estarem funcionando
       run: sleep 8  # segundos
@@ -38,3 +44,13 @@ jobs:
 
     - name: 🧪 Executar testes External de API Rest via HTTP
       run: npm run test-rest-external
+
+    - name: 🧪 Executar testes External de API GraphQL via HTTP
+      run: npm run test-graphql-external
+
+    - name: 📦 Publicar o relatório de testes
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: mochawesome-report
+        path: mochawesome-report/
